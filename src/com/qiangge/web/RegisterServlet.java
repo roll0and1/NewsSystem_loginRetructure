@@ -94,7 +94,17 @@ public class RegisterServlet extends HttpServlet {
 		// 4.传递到页面
 		// 将message保存到request中
 		request.setAttribute("message", message);
-		// 转发到注册页面
-		request.getRequestDispatcher("/ToRegister").forward(request, response);
+		// 转发到相应页面
+		if ("注册成功".equals(message)) {
+			request.setAttribute("name", name);
+			request.getRequestDispatcher("/registerSuccess.jsp").forward(
+					request, response);
+		} else if ("注册失败".equals(message)) {
+			request.getRequestDispatcher("/register.jsp").forward(
+					request, response);
+		}else {
+			request.getRequestDispatcher("/error.jsp").forward(
+					request, response);
+		}
 	}
 }
