@@ -45,7 +45,7 @@
 		</div>
 
 		<h1>
-			<a href="index.htm"><img src="images/logo.png" width="260"
+			<a href="index.html"><img src="images/logo.png" width="260"
 				height="56" alt="新闻系统" /> </a>
 		</h1>
 	</div>
@@ -54,21 +54,21 @@
 	<!-- menu start -->
 	<div class="menu">
 		<ul>
-			<li><a href="index.htm"><span>主页</span> </a></li>
+			<li><a href="index.html"><span>主页</span> </a></li>
 
-			<li><a href="newsType.htm"><span>国际新闻</span> </a></li>
+			<li><a href="newsType.html"><span>国际新闻</span> </a></li>
 
-			<li><a href="newsType.htm"><span>国内新闻</span> </a></li>
+			<li><a href="newsType.html"><span>国内新闻</span> </a></li>
 
-			<li><a href="newsType.htm"><span>娱乐新闻</span> </a></li>
+			<li><a href="newsType.html"><span>娱乐新闻</span> </a></li>
 
-			<li><a href="newsType.htm"><span>体育新闻</span> </a></li>
+			<li><a href="newsType.html"><span>体育新闻</span> </a></li>
 
-			<li><a href="newsType.htm"><span>财经频道</span> </a></li>
+			<li><a href="newsType.html"><span>财经频道</span> </a></li>
 
-			<li><a href="newsType.htm"><span>汽车频道</span> </a></li>
+			<li><a href="newsType.html"><span>汽车频道</span> </a></li>
 
-			<li><a href="newsType.htm"><span>电子频道</span> </a></li>
+			<li><a href="newsType.html"><span>电子频道</span> </a></li>
 		</ul>
 
 		<form action="" method="post">
@@ -82,14 +82,16 @@
 
 	<!-- main start -->
 	<div class="main">
-		<form action="admin/frame.htm" method="post">
+		<form action="Login" method="post">
 			<div class="register_main">
 				<table>
 					<tr>
 						<td width="60">用户名：</td>
 						<td width="180">
 							<!-- 为元素定义id属性，可通过document对象访问 --> <input type="text" name="name"
-							id="name" value="" />
+							id="name"
+							<%if (request.getAttribute("name") != null) {%>
+							value="<%=request.getAttribute("name")%> <%}%>" />
 						</td>
 						<td width="220"></td>
 					</tr>

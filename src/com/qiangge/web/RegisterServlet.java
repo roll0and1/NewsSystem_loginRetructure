@@ -97,13 +97,13 @@ public class RegisterServlet extends HttpServlet {
 		// 转发到相应页面
 		if ("注册成功".equals(message)) {
 			request.setAttribute("name", name);
-			request.getRequestDispatcher("/registerSuccess.jsp").forward(
+			request.getRequestDispatcher("registerSuccess.jsp").forward(
 					request, response);
 		} else if ("注册失败".equals(message)) {
-			request.getRequestDispatcher("/register.jsp").forward(
+			request.getRequestDispatcher("register.jsp").forward(
 					request, response);
 		}else {
-			request.getRequestDispatcher("/error.jsp").forward(
+			request.getRequestDispatcher("error.jsp").forward(
 					request, response);
 		}
 	}

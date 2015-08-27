@@ -62,7 +62,7 @@ public class LoginServlet extends HttpServlet {
 			// 将message信息存入request
 			request.setAttribute("message", message);
 			// 登录失败转发到登录页面
-			request.getRequestDispatcher("ToLogin").forward(request, response);
+			request.getRequestDispatcher("login.jsp").forward(request, response);
 		} else {
 			/**
 			 * 进行登录处理根据用户名和用户密码来查询用户Id，此处采用硬编码的方式 登录成功返回用户Id值
@@ -83,7 +83,7 @@ public class LoginServlet extends HttpServlet {
 					session.setAttribute("userId", userId);
 					session.setAttribute("name", name);
 					// 重定向到用户页面
-					response.sendRedirect("ToNewUser");
+					response.sendRedirect("newUser.jsp");
 				} else {
 					// 登录失败跳转到登录页面
 					message = "用户名或密码错误！";
@@ -92,14 +92,14 @@ public class LoginServlet extends HttpServlet {
 					// 将本次登录的用户名传递到页面上显示
 					request.setAttribute("name", name);
 					// 将页面转发至登录页面
-					request.getRequestDispatcher("ToLogin").forward(request,
+					request.getRequestDispatcher("login.jsp").forward(request,
 							response);
 				}
 
 			} catch (AppException e) {
 				e.printStackTrace();
 				// 重定向到异常页面
-				response.sendRedirect("ToError");
+				response.sendRedirect("error.jsp");
 			}
 		}
 
